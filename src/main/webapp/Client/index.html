@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>居间业务管理主页</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+</head>
+
+<style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    div{
+        margin: 0px auto;
+    }
+
+    .header{
+        height: 100px;
+        width: 800px;
+        background-color: #bfa;
+    }
+    .navigation{
+        height: 50px;
+        width: 800px;
+        background-color: yellow;
+    }
+    .content{
+        height: 800px;
+        width: 800px;
+        background-color: skyblue;
+    }
+    .bottom{
+        height: 100px;
+        width: 800px;
+        background-color: pink;
+    }
+</style>
+
+<body>
+
+<div class="header"></div>
+<div class="navigation"></div>
+<div class="content"></div>
+<div class="bottom"></div>
+
+<script type="text/babel">
+
+    const numbers = ['A', 'B', 'C', 'D', 'E'];
+    const listItems = numbers.map(
+        (item) => <tr key={item}><td>{item}</td></tr>
+    );
+
+    ReactDOM.render(
+            <table><tbody>{listItems}</tbody></table> ,
+        document.getElementsByClassName('content')[0]
+    );
+
+</script>
+
+</body>
+</html>
