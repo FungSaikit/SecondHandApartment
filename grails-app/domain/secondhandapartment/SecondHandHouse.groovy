@@ -3,7 +3,7 @@ package secondhandapartment
 class SecondHandHouse {
     String houseTitle
     String houseOwner
-    String agent
+    String agentId
     String city
     String price
 }

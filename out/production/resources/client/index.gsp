@@ -1,4 +1,3 @@
-<%@ page import="secondhandapartment.SecondHandHouse" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,19 +64,19 @@
     <div class="navigation"></div>
 </div>
 <div class="content">
-    <table>
-        <g:each in="${house}" var="item">
-            <tr>
-                <td>${item.id}</td>
-                <td>${item.houseTitle}</td>
-                <td>${item.houseOwner}</td>
-                <td>${item.agentId}</td>
-                <td>${item.city}</td>
-                <td>${item.price}</td>
-            </tr>
-        </g:each>
-
-    </table>
+<table>
+    %{--<g:each in="${houseList}" status="i" var="house">
+        <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+            <td>${house.houseId?.encodeAsHTML()}</td>
+            <td>${house.houseTitle?.encodeAsHTML()}</td>
+            <td>${house.houseOwner?.encodeAsHTML()}</td>
+            <td>${house.AgentId?.encodeAsHTML()}</td>
+            <td>${house.city?.encodeAsHTML()}</td>
+            <td>${house.price?.encodeAsHTML()}</td>
+        </tr>
+    </g:each>--}%
+    %{--<f:display bean="houseList" />--}%
+</table>
 </div>
 <div class="bottom"></div>
 
