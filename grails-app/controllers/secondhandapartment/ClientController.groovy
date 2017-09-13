@@ -3,7 +3,9 @@ package secondhandapartment
 class ClientController {
 
     def index() {
-        render "This is client index"
+        println "it's in the client index now!"
+        [ houseList: SecondHandHouse.list() ]
+        render(view: "index")
     }
 
     def login(){

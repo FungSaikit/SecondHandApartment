@@ -35,11 +35,10 @@
     }
 
     .header{
-        height: 400px;
+        height: 80px;
         width: 800px;
         background-color: rebeccapurple;
         vertical-align: middle;
-        background: url("../IMG/header.jpeg");
     }
     .navigation{
         height: 50px;
@@ -64,13 +63,7 @@
     <div class="title"></div>
     <div class="navigation"></div>
 </div>
-<div class="content">
-
-    <g:each in="${nameList}" var="name">
-        <span>${name.name}</span>
-    </g:each>
-
-</div>
+<div class="content">${myName}</div>
 <div class="bottom"></div>
 
 <script type="text/babel">
@@ -81,8 +74,8 @@
         document.getElementsByClassName('title')[0]
     );
 
-    const navigationArray = ['二手房', '出租房', '楼盘展示', '经纪人', '我要买房', '练习我们'];
-    const list = navigationArray.map((item) => <li>{item}</li>);
+    const navigationArray = ['二手房', '出租房', '楼盘展示', '经纪人', '我要买房', '联系我们'];
+    const list = navigationArray.map((item) => <li><a href="#">{item}</a></li>);
     ReactDOM.render(
         <ul>
             {list}
