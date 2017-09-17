@@ -1,0 +1,5 @@
+package secondhandapartment
+
+class Book {
+
+}

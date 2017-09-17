@@ -66,7 +66,7 @@
 </div>
 <div class="content">
     <table>
-        <g:each in="${house}" var="item">
+        <g:each in="${secondhandapartment.SecondHandHouse.getAll()}" var="item">
             <tr>
                 <td>${item.id}</td>
                 <td>${item.houseTitle}</td>

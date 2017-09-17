@@ -1,12 +1,21 @@
 package secondhandapartment
 
+import grails.converters.JSON
+
 class ClientController {
 
-    def index(String houseId) {
-//        def p = new SecondHandHouse(houseTitle: '珠江新城3房2厅150方，一共有20套', houseOwner: '梁炜坤', agentId: 'lwk', city: '广州', price: '8888888' )
-//        p.save()
-        SecondHandHouse.get(houseId)
+    def index() {
         render(view: "index")
+    }
+
+    def getAllHouse(){
+        render SecondHandHouse.getAll() as JSON
+    }
+
+    def createSecondHandHouse(String houseTitle, String houseOwner, String city, String agentId, String price){
+        def newHouse = new House(houseTitle: houseTitle, houseOwner: houseOwner, city: city, agentId: agentId, price: price)
+        newHouse.save()
+        render "create success!"
     }
 
     def login(){
