@@ -39,11 +39,16 @@ class House {
     String houseElectricalEquipment
     /*电器*/
 
+    static belongsTo = [district: District, housingProject: HousingProject]
     static constraints = {
         houseTitle blank: false
         housingProductName nullable: false
         houseOwner nullable: false
         housePrice nullable: true
         agentId nullable: true
+    }
+
+    String toString(){
+        return houseTitle
     }
 }
