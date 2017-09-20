@@ -1,9 +1,8 @@
-
 /*这个类是楼盘类*/
 
 package secondhandapartment
 
-class HousingProject {
+class HousingProduct {
     String name
     String buildingType
     String developer

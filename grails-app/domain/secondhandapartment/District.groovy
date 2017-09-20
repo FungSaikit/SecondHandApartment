@@ -4,11 +4,15 @@ class District {
     String districtName
 
     static belongsTo = [city: City]
-    static hasMany = [houses: House, housingProject: HousingProject]
+    static hasMany = [houses: House, houseingProduct: HousingProduct]
 
     static constraints = {
+        districtName()
+        city()
         districtName unique: true
-        city nullable: true
+        city nullable: false
+        houses nullable: true
+        houseingProduct nullable: true
     }
 
     String toString(){

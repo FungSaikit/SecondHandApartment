@@ -3,12 +3,14 @@ package secondhandapartment
 class City {
     String cityName
 
-    static belongsTo = [provinve: Province]
+    static belongsTo = [province: Province]
     static hasMany = [districts: District]
 
     static constraints = {
+        cityName()
+        province()
         cityName unique: true
-        provinve nullable: true
+        province nullable: true
         districts nullable: true
     }
 

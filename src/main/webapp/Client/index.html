@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>居间业务管理主页</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
-    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
 </head>
 
 <style type="text/css">
@@ -66,31 +63,9 @@
 </div>
 <div class="content">
 
-    <g:each in="${nameList}" var="name">
-        <span>${name.name}</span>
-    </g:each>
-
 </div>
 <div class="bottom"></div>
 
-<script type="text/babel">
-
-    const title = <h1>居间业务管理系统</h1>;
-    ReactDOM.render(
-        title,
-        document.getElementsByClassName('title')[0]
-    );
-
-    const navigationArray = ['二手房', '出租房', '楼盘展示', '经纪人', '我要买房', '练习我们'];
-    const list = navigationArray.map((item) => <li>{item}</li>);
-    ReactDOM.render(
-        <ul>
-            {list}
-        </ul>,
-        document.getElementsByClassName('navigation')[0]
-    );
-
-</script>
 
 
 </body>

@@ -8,8 +8,6 @@ class House {
     Boolean isSecondHandHouse
     /*二手房为true， 出租房为false*/
     String houseDetail
-    String housingProductName
-    /*楼盘名*/
     String houseUsage
     /*用途*/
     String houseType
@@ -39,10 +37,10 @@ class House {
     String houseElectricalEquipment
     /*电器*/
 
-    static belongsTo = [district: District, housingProject: HousingProject]
+    static belongsTo = [district: District, housingProduct: HousingProduct]
+
     static constraints = {
         houseTitle blank: false
-        housingProductName nullable: false
         houseOwner nullable: false
         housePrice nullable: true
         agentId nullable: true
