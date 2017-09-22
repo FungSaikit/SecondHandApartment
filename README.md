@@ -1,1 +1,1 @@
-This project use React and Grails.
+This project use Grails framework.

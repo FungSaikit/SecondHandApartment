@@ -168,10 +168,10 @@
 
 </style>
 
-<body>
+<body onload="onloadData()">
 
 <div class="userinfo">
-    <span id="userinfo" style="float: right;color: gray;font-size: 14px; margin-right: 20px">欢迎您，<a href="login" style="color: blue;">请登陆</a></span>
+    <span id="userinfo" style="float: right;color: gray;font-size: 14px; margin-right: 20px">欢迎您，<a id="username" href="login" style="color: blue;">请登陆</a></span>
 </div>
 
 <div class="header">
@@ -262,12 +262,17 @@
         }
     }
 
-
     //设置首页图片轮播
     setInterval(function () {
         changeImg(currentImgNumber);
         currentImgNumber = currentImgNumber == imgs.length ? 1 : currentImgNumber+1;
     }, 3000);
+
+    function onloadData() {
+        var username = sessionStorage.getItem('username');
+        if (username != null)
+        document.getElementById('username').innerHTML = username;
+    }
 </script>
 
 </body>

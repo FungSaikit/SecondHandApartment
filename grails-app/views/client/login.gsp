@@ -82,7 +82,7 @@
     <p style="font-size: 14px">没有账号？<a href="javascript:void(0)" onclick="displayRegister()">点此注册</a></p>
 </div>
 
-<div hidden id="registerbox" class="box" >
+<div hidden id="registerbox" class="box" style="bottom: 0px;">
     <p style="margin: 10px;font-size: 20px;">用户注册</p>
     <table style="width: 98%;">
         <tr class="titletr">
@@ -95,7 +95,7 @@
         </tr>
         <tr class="titletr">
             <td class="registerleft"><span class="registertitle">确认密码</span></td>
-            <td><input type="password" id="comfirmpassword"></td>
+            <td><input type="password" id="confirmpassword"></td>
         </tr>
         <tr class="titletr">
             <td class="registerleft"><span class="registertitle">称呼</span></td>
@@ -110,7 +110,7 @@
         <tr class="titletr">
             <td class="registerleft"><span class="registertitle">电子邮箱</span></td>
             </td>
-            <td><input type="email"></td>
+            <td><input id="email" type="email"></td>
         </tr>
         <tr class="titletr">
             <td class="registerleft"><span class="registertitle">电话号码</span></td>
@@ -118,18 +118,26 @@
             <td><input id="phone"></td>
         </tr>
     </table>
-    <button>注册</button>
+    <button onclick="register()">注册</button>
     <p><a href="javascript:void(0)" onclick="displayLogin()">返回登陆</a></p>
 </div>
 </body>
 <script type="text/javascript">
     var registerBox = document.getElementById('registerbox');
+    var loginBox = document.getElementById('loginbox');
+
+    String.prototype.trim=function() {
+        return this.replace(/(^\s*)|(\s*$)/g, "");
+    }
+
     function displayLogin() {
         registerBox.hidden = true;
+        loginBox.hidden = false;
     }
 
     function displayRegister() {
         registerBox.hidden = false;
+        loginbox.hidden = true;
     }
 
     function login() {
@@ -148,11 +156,46 @@
                 }else if(result == "密码错误"){
                     alert("密码错误");
                 }else{
-                    localStorage.setItem('username', username);
+                    sessionStorage.setItem('username', username);
                     window.location.href = this.responseText;
                 }
             }
         }
+    }
+    
+    function register() {
+        var username = document.getElementById('registerusername');
+        var password = document.getElementById('registerpassword');
+        var confirmPassword = document.getElementById('confirmpassword');
+        var gender = document.getElementById('gender');
+        var emailAddress = document.getElementById('email');
+        var phone = document.getElementById('phone');
+
+        if (username.value.trim() == "" || password.value.trim() == "" || emailAddress.value.trim() == "" || phone.value.trim() == ""){
+            alert("请完成所有信息！");
+        }else if (password.value != confirmPassword.value){
+            alert("两次输入的密码不正确");
+        }else{
+            var url = "/User/register";
+            var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+            xhr.open('post', url);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send('username=' + username.value + "&password=" + password.value + "&gender=" + gender.value + "&email=" + emailAddress.value + "&phone=" + phone.value);
+            xhr.onreadystatechange = function () {
+                if(this.status == 200 && this.readyState == 4){
+                    var result = this.responseText;
+                    if (result == 0){
+                        alert ("账号已被注册！");
+                    }else if(result == 1){
+                        alert("注册成功,请登陆！");
+                        displayLogin();
+                    }else{
+                        alert("未知原因，注册失败！");
+                    }
+                }
+            }
+        }
+
     }
 </script>
 </html>

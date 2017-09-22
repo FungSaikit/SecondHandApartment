@@ -22,6 +22,18 @@ class UserController {
         }
     }
 
+    def register(){
+        if(User.findByUsername(params.username) != null){
+            render "0"
+        }else{
+            User newUser = new User(username: params.username, password: params.password, userGender: params.gender, userEmail: params.email, phoneNumber: params.phone)
+            newUser.save()
+            render "1"
+        }
+
+
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userCount: User.count()]

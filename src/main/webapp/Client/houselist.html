@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看二手房</title>
+</head>
+
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: url("../IMG/bg.jpg");
+        background-size: cover;
+    }
+
+    div {
+        margin: 0px auto;
+    }
+
+    ul {
+        width: 100%;
+    }
+
+    li {
+        list-style-type: none;
+        color: #fff;
+        display: inline-block;
+        width: 16.667%;
+        text-align: center;
+        float: left;
+    }
+
+    li > a {
+        font-size: 18px;
+        color: dimgray;
+        text-decoration: none;
+    }
+
+    li > a:hover {
+        color: red;
+    }
+
+    .userinfo {
+        width: 100%;
+        height: 22px;
+        background-color: #ececec;
+    }
+
+    .header {
+        margin: 5px auto;
+        height: 100px;
+        width: 800px;
+        background-color: #fff;
+        vertical-align: middle;
+        border: 1px gray solid;
+        border-radius: 5px;
+    }
+
+    .content {
+        height: 800px;
+        width: 800px;
+        background-color: white;
+        border: 1px gray solid;
+        border-radius: 5px;
+
+    }
+
+    .bottom {
+        height: 100px;
+        width: 800px;
+        background-color: white;
+        border: 1px gray solid;
+        border-radius: 10px;
+        margin: 5px auto;
+        text-align: center;
+    }
+
+    .agentcontent {
+        border: 1px gray solid;
+        border-radius: 5px;
+        width: 300px;
+        height: 300px;
+        margin: 5px 5px 5px 0;
+        display: inline-block;
+    }
+
+    .housepic {
+        border: 1px gray solid;
+        border-radius: 5px;
+        width: 480px;
+        height: 300px;
+        margin: 5px 0 5px 5px;
+        display: inline-block;
+    }
+
+    .housepic > button {
+        height: 20px;
+        width: 20px;
+    }
+
+    .title{
+        font-weight: bold;
+    }
+
+    .filter{
+        padding: 10px;
+        border-bottom: 1px gray solid;
+    }
+
+    .filter1{
+        padding: 5px;
+    }
+
+    .filter2{
+        padding: 5px;
+    }
+
+    .filter2 > button {
+        height: 20px;
+        width: 40px;
+    }
+
+    .houselist{
+        width: 100px;
+        height: 680px;
+    }
+
+    .page{
+        text-align: center;
+    }
+
+    .pagebutton{
+        margin: 5px;
+        width: 40px;
+        height: 25px;
+    }
+
+</style>
+
+<body>
+
+<div class="userinfo">
+    <span id="userinfo" style="float: right;color: gray;font-size: 14px; margin-right: 20px">欢迎您，<a id="username" href="login" style="color: blue;">请登陆</a></span>
+</div>
+
+<div class="header">
+
+    <div class="title">
+        <h1 style="font-size: 30px; margin: 10px;display: inline-block;">二手房电子商务交易平台</h1>
+    </div>
+
+    <div class="navigation">
+        <ul>
+            <li><a href="#">二手房</a></li>
+            <li><a href="#">出租房</a></li>
+            <li><a href="#">楼盘介绍</a></li>
+            <li><a href="#">经纪人</a></li>
+            <li><a href="#">我要看房/放盘</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="content">
+
+    <div class="filter">
+        <div class="filter1">
+            <span class="title">区域：</span>
+            <span>省</span>
+            <select id="province">
+                <option value="none">不限</option>
+            </select>
+            <span>市</span>
+            <select id="city">
+                <option value="none">不限</option>
+            </select>
+            <span>区</span>
+            <select id="district">
+                <option value="none">不限</option>
+            </select>
+            <span class="title">售价：</span>
+            <select id="price">
+                <option value="none">不限</option>
+                <option value="1m">100万以内</option>
+                <option value="2m">100万-200万(不含)</option>
+                <option value="5m">200万-500万(不含)</option>
+                <option value="10m">500万-1000万(不含)</option>
+                <option value="max">1000万以上</option>
+            </select>
+            <span class="title">面积：</span>
+            <select id="area">
+                <option value="none">不限</option>
+                <option value="50">50m³以下</option>
+                <option value="100">50m³-100m³(不含)</option>
+                <option value="150">100m³-150m³(不含)</option>
+                <option value="200">150m³-200m³(不含)</option>
+                <option value="max">200m³以上</option>
+            </select>
+        </div>
+
+        <div class="filter2">
+            <span class="title">关键词</span>
+            <input id="keyword" type="text">
+            <button>搜索</button>
+        </div>
+    </div>
+
+    <div class="houselist">
+
+    </div>
+
+    <div class="page">
+        <button class="pagebutton">下一页</button>
+        <span>第 </span><input id="currentpage" style="width: 2em"><span> 页</span>
+        <button class="pagebutton">上一页</button>
+    </div>
+
+</div>
+
+<div class="bottom">
+    &nbsp
+    <br>
+    二手房电子商务交易平台
+    <br>
+    By JackFung
+    <br>
+    2017.9
+</div>
+
+</body>
+</html>
