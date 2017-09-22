@@ -8,6 +8,15 @@ class HouseController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def makelike(){
+        def house = House.getAll()
+        for (int i = 0; i < house.size(); i++){
+            house[i].like = (int)Math.random()*1000
+            house[i].save()
+        }
+        render 'success!'
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond House.list(params), model:[houseCount: House.count()]

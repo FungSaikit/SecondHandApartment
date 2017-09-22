@@ -5,6 +5,7 @@ class House {
     String houseOwner
     String agentId
     int housePrice
+    int like
     Boolean isSecondHandHouse
     /*二手房为true， 出租房为false*/
     String houseDetail

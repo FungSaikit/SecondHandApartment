@@ -12,6 +12,4 @@ class ClientController {
         render(view: "/client/login")
     }
 
-
-
 }

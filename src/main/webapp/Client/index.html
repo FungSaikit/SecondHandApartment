@@ -196,11 +196,11 @@
 
     <div class="line1">
         <div class="housepic" style="text-align: center">
-            <img class="showimg" src="../IMG/1.jpg" alt="1">
-            <img class="showimg" src="../IMG/2.jpg" alt="2" hidden>
-            <img class="showimg" src="../IMG/3.jpg" alt="3" hidden>
-            <img class="showimg" src="../IMG/4.jpg" alt="4" hidden>
-            <img class="showimg" src="../IMG/5.jpg" alt="5" hidden>
+            <a class="imga" href="#"><img class="showimg" src="../IMG/1.jpg" alt="1"></a>
+            <a class="imga" href="#" hidden><img class="showimg" src="../IMG/2.jpg" alt="2"></a>
+            <a class="imga" href="#" hidden><img class="showimg" src="../IMG/3.jpg" alt="3"></a>
+            <a class="imga" href="#" hidden><img class="showimg" src="../IMG/4.jpg" alt="4"></a>
+            <a class="imga" href="#" hidden><img class="showimg" src="../IMG/5.jpg" alt="5"></a>
             <br>
             <button id="showbtn1" class="btnselected" onclick="changeImg(1)">1</button>
             <button id="showbtn2" onclick="changeImg(2)">2</button>
@@ -281,7 +281,7 @@
 </div>
 
 <script type="text/javascript">
-    var imgs = document.getElementsByClassName('showimg');
+    var imgs = document.getElementsByClassName('imga');
     var currentImgNumber = 1;
     function changeImg(number) {
         for (var i = 1; i <= 5; i++){
