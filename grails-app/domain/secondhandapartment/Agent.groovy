@@ -17,4 +17,8 @@ class Agent {
         photoUrl nullable: true
         point()
     }
+
+    String toString(){
+        return name
+    }
 }

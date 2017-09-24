@@ -3,7 +3,6 @@ package secondhandapartment
 class House {
     String houseTitle
     String houseOwner
-    String agentId
     int housePrice
     int like
     Boolean isSecondHandHouse
@@ -38,13 +37,12 @@ class House {
     String houseElectricalEquipment
     /*电器*/
 
-    static belongsTo = [district: District, housingProduct: HousingProduct]
+    static belongsTo = [district: District, housingProduct: HousingProduct, agent: Agent]
 
     static constraints = {
         houseTitle blank: false
         houseOwner nullable: false
         housePrice nullable: true
-        agentId nullable: true
     }
 
     String toString(){

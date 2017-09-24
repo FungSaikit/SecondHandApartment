@@ -13,7 +13,7 @@
     }
 
     body{
-        background: url("/assets/bg.jpg");
+        background: url("../assets/bg.jpg");
         background-size: cover;
     }
 
@@ -182,7 +182,7 @@
 
     <div class="navigation">
         <ul>
-            <li><a href="#">二手房</a></li>
+            <li><a href="secondhandhouse">二手房</a></li>
             <li><a href="#">出租房</a></li>
             <li><a href="#">楼盘介绍</a></li>
             <li><a href="#">经纪人</a></li>

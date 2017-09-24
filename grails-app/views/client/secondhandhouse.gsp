@@ -1,3 +1,4 @@
+<%@ page import="secondhandapartment.Agent" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
     }
 
     body {
-        background: url("../IMG/bg.jpg");
+        background: url("../assets/bg.jpg");
         background-size: cover;
     }
 
@@ -126,7 +127,7 @@
 
     .pagebutton{
         margin: 5px;
-        width: 40px;
+        width: 50px;
         height: 25px;
     }
 
@@ -223,11 +224,11 @@
             <span class="title">&nbsp面积：</span>
             <select id="area">
                 <option value="none">不限</option>
-                <option value="50">50m³以下</option>
-                <option value="100">50m³-100m³(不含)</option>
-                <option value="150">100m³-150m³(不含)</option>
-                <option value="200">150m³-200m³(不含)</option>
-                <option value="max">200m³以上</option>
+                <option value="50">50m²以下</option>
+                <option value="100">50m²-100m²(不含)</option>
+                <option value="150">100m²-150m²(不含)</option>
+                <option value="200">150m²-200m²(不含)</option>
+                <option value="max">200m²以上</option>
             </select>
         </div>
 
@@ -241,65 +242,20 @@
     <div class="houselist" style="text-align: left">
         <div style="color: gray; font-size: 14px; padding: 5px">共找到 <span style="color: blue">12345</span> 条结果</div>
 
-        <div class="houseline">
-            <img src="../IMG/1.jpg" class="housepic">
-            <div class="housedetail">
-                <a class="housetitle" href="#">出售恒大绿洲200平方米 豪华精装 全套家电 望江 东南向</a><br>
-                <span>楼盘：恒大绿洲</span><br>
-                <span>楼层：8</span><br>
-                <span>建筑面积：200m³</span><br>
-                <span>经纪人：<a href="#">梁炜坤</a></span><br>
+        <g:each in="${(secondhandapartment.House.where {isSecondHandHouse == true}).list(max: 5, order: "desc", sort: "like")}" status="i" var="object">
+            <div class="houseline">
+                <img src="../assets/client/${i+1}.jpg" class="housepic">
+                <div class="housedetail">
+                    <a class="housetitle" href="#">${object.houseTitle}</a><br>
+                    <span>楼盘：${object.housingProduct}</span><br>
+                    <span>楼层：${object.houseFloor}</span><br>
+                    <span>建筑面积：${object.houseBuildingArea}m²</span><br>
+                    <span>经纪人：<a href="#">${object.agent}</a></span><br>
+                </div>
+                <div class="houseprice"><span>${object.housePrice/10000}万</span></div>
             </div>
-            <div class="houseprice"><span>880万</span></div>
-        </div>
+        </g:each>
 
-        <div class="houseline">
-            <img src="../IMG/1.jpg" class="housepic">
-            <div class="housedetail">
-                <a class="housetitle" href="#">出售恒大绿洲200平方米 豪华精装 全套家电 望江 东南向</a><br>
-                <span>楼盘：恒大绿洲</span><br>
-                <span>楼层：8</span><br>
-                <span>建筑面积：200m³</span><br>
-                <span>经纪人：<a href="#">梁炜坤</a></span><br>
-            </div>
-            <div class="houseprice"><span>880万</span></div>
-        </div>
-
-        <div class="houseline">
-            <img src="../IMG/1.jpg" class="housepic">
-            <div class="housedetail">
-                <a class="housetitle" href="#">出售恒大绿洲200平方米 豪华精装 全套家电 望江 东南向</a><br>
-                <span>楼盘：恒大绿洲</span><br>
-                <span>楼层：8</span><br>
-                <span>建筑面积：200m³</span><br>
-                <span>经纪人：<a href="#">梁炜坤</a></span><br>
-            </div>
-            <div class="houseprice"><span>880万</span></div>
-        </div>
-
-        <div class="houseline">
-            <img src="../IMG/1.jpg" class="housepic">
-            <div class="housedetail">
-                <a class="housetitle" href="#">出售恒大绿洲200平方米 豪华精装 全套家电 望江 东南向</a><br>
-                <span>楼盘：恒大绿洲</span><br>
-                <span>楼层：8</span><br>
-                <span>建筑面积：200m³</span><br>
-                <span>经纪人：<a href="#">梁炜坤</a></span><br>
-            </div>
-            <div class="houseprice"><span>880万</span></div>
-        </div>
-
-        <div class="houseline">
-            <img src="../IMG/1.jpg" class="housepic">
-            <div class="housedetail">
-                <a class="housetitle" href="#">出售恒大绿洲200平方米 豪华精装 全套家电 望江 东南向</a><br>
-                <span>楼盘：恒大绿洲</span><br>
-                <span>楼层：8</span><br>
-                <span>建筑面积：200m³</span><br>
-                <span>经纪人：<a href="#">梁炜坤</a></span><br>
-            </div>
-            <div class="houseprice"><span>880万</span></div>
-        </div>
 
 
     </div>

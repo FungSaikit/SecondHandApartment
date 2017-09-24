@@ -9,7 +9,11 @@ class ClientController {
     }
 
     def login(){
-        render(view: "/client/login")
+        render(view: "login")
+    }
+
+    def secondhandhouse(){
+        render(view: "secondhandhouse")
     }
 
 }
